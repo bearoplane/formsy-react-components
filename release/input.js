@@ -16,7 +16,7 @@ var Input = React.createClass({
     mixins: [Formsy.Mixin, ComponentMixin],
 
     propTypes: {
-        type: React.PropTypes.oneOf(['color', 'date', 'datetime', 'datetime-local', 'email', 'hidden', 'month', 'number', 'password', 'range', 'search', 'static', 'tel', 'text', 'time', 'url', 'week'])
+        type: React.PropTypes.oneOf(['color', 'date', 'datetime', 'datetime-local', 'email', 'hidden', 'month', 'number', 'password', 'range', 'search', 'tel', 'text', 'time', 'url', 'week'])
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -64,28 +64,7 @@ var Input = React.createClass({
 
     renderElement: function renderElement() {
         var className = 'form-control';
-        if (['static'].indexOf(this.props.type) !== -1) {
-            className = 'form-control-static';
-            return React.createElement('p', _extends({
-                  className: className
-              }, this.props, {
-                  id: this.getId()
-              }),
-              this.getValue()
-            );
-            /*
-            return (
-              <p
-                className={className}
-                {...this.props}
-                id={this.getId()}
-              >
-                {this.getValue()}
-              </p>
-            );
-            */
-        }
-        else if (['range'].indexOf(this.props.type) !== -1) {
+        if (['range'].indexOf(this.props.type) !== -1) {
             className = null;
         }
         return React.createElement('input', _extends({
