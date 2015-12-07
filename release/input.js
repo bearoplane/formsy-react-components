@@ -66,6 +66,14 @@ var Input = React.createClass({
         var className = 'form-control';
         if (['static'].indexOf(this.props.type) !== -1) {
             className = 'form-control-static';
+            return React.createElement('p', _extends({
+                  className: className
+              }, this.props, {
+                  id: this.getId()
+              }),
+              this.getValue()
+            );
+            /*
             return (
               <p
                 className={className}
@@ -75,6 +83,7 @@ var Input = React.createClass({
                 {this.getValue()}
               </p>
             );
+            */
         }
         else if (['range'].indexOf(this.props.type) !== -1) {
             className = null;
