@@ -25,6 +25,7 @@ var Input = React.createClass({
             'password',
             'range',
             'search',
+            'static',
             'tel',
             'text',
             'time',
@@ -80,7 +81,19 @@ var Input = React.createClass({
 
     renderElement: function() {
         var className = 'form-control';
-        if (['range'].indexOf(this.props.type) !== -1) {
+        if (['static'].indexOf(this.props.type) !== -1) {
+            className = 'form-control-static';
+            return (
+              <p
+                className={className}
+                {...this.props}
+                id={this.getId()}
+              >
+                {this.getValue()}
+              </p>
+            );
+        }
+        else if (['range'].indexOf(this.props.type) !== -1) {
             className = null;
         }
         return (
